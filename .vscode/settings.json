@@ -1,6 +1,0 @@
-{
-    "files.associations": {
-        "types.h": "c",
-        "system_error": "c"
-    }
-}

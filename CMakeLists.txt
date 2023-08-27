@@ -18,5 +18,6 @@ target_link_libraries(CPhysics glfw ${OPENGL_opengl_LIBRARY})
 target_link_libraries(CPhysics glfw ${OPENGL_glx_LIBRARY})
 
 target_sources(CPhysics PUBLIC
+    ${VENDOR_DIR}/glad-core-4.5/src/glad.c
     src/util/log.c
 )

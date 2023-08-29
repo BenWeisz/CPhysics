@@ -71,6 +71,18 @@ void ShaderProgram_deinit(const SHADER_PROGRAM* shader_program)
     free((void*)shader_program);
 }
 
+void ShaderProgram_bind(const SHADER_PROGRAM* shader_program)
+{
+    glUseProgram(shader_program->ID);
+}
+
+void ShaderProgram_unbind()
+{
+    glUseProgram(0);
+}
+
+// Private functions
+
 u32 _ShaderProgram_create_shader(const char* path, u32 type)
 {
     const char* shader_src = IO_read(path);

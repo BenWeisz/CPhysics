@@ -22,4 +22,5 @@ target_sources(CPhysics PUBLIC
     src/util/log.c
     src/util/io.c
     src/graphics/shader_program.c
+    src/graphics/vertex_buffer.c
 )

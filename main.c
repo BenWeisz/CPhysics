@@ -8,9 +8,16 @@
 #include "util/log.h"
 
 #include "graphics/shader_program.h"
+#include "graphics/vertex_buffer.h"
 
 const u32 WIDTH = 800;
 const u32 HEIGHT = 600;
+
+void input_handler(GLFWwindow *window)
+{
+    if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+        glfwSetWindowShouldClose(window, 1);
+}
 
 int main()
 {
@@ -43,19 +50,43 @@ int main()
 
     SHADER_PROGRAM* shader_program = ShaderProgram_create("../res/shaders/base.vs", "../res/shaders/base.fs");
 
+    f32 data[] = {
+        0.0, 0.5, 0.0,
+        -0.5, -0.5, 0.0,
+        0.5, -0.5, 0.0
+    };
+
+    VERTEX_BUFFER* vertex_buffer = VertexBuffer_create();
+    VertexBuffer_bind(vertex_buffer);
+    VertexBuffer_buffer_data(data, 9);
+    VertexBuffer_unbind();
+
     // Render loop
     while (!glfwWindowShouldClose(window))
     {
+        // Input Handler
+        input_handler(window);
+
         glClearColor(0.169, 0.169, 0.49, 1.0);
         glClear(GL_COLOR_BUFFER_BIT);
+
+        // Draw things here
+        ShaderProgram_bind(shader_program);
+        VertexBuffer_bind(vertex_buffer);
+
+        
+
+        VertexBuffer_unbind(vertex_buffer);
+        ShaderProgram_unbind();
 
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
 
-    glfwTerminate();
+    VertexBuffer_deinit(vertex_buffer);
+    ShaderProgram_deinit(shader_program);
 
-    // Stay tuned for part 2!
+    glfwTerminate();
 
     return 0;
 }

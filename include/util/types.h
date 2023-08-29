@@ -7,4 +7,7 @@
 #define u64 unsigned long
 #define i64 long
 
+#define f32 float
+#define f64 double
+
 #endif  // TYPES_H

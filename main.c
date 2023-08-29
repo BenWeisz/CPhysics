@@ -6,7 +6,6 @@
 
 #include "util/types.h"
 #include "util/log.h"
-#include "util/linked_list.h"
 
 #include "graphics/shader_program.h"
 #include "graphics/vertex_buffer.h"
@@ -74,8 +73,6 @@ int main()
         // Draw things here
         ShaderProgram_bind(shader_program);
         VertexBuffer_bind(vertex_buffer);
-
-
 
         VertexBuffer_unbind(vertex_buffer);
         ShaderProgram_unbind();

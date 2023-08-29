@@ -7,6 +7,8 @@
 #include "util/types.h"
 #include "util/log.h"
 
+#include "graphics/shader_program.h"
+
 const u32 WIDTH = 800;
 const u32 HEIGHT = 600;
 
@@ -39,6 +41,8 @@ int main()
         return 1;   
     }
 
+    SHADER_PROGRAM* shader_program = ShaderProgram_create("../res/shaders/base.vs", "../res/shaders/base.fs");
+
     // Render loop
     while (!glfwWindowShouldClose(window))
     {
@@ -50,6 +54,8 @@ int main()
     }
 
     glfwTerminate();
+
+    // Stay tuned for part 2!
 
     return 0;
 }

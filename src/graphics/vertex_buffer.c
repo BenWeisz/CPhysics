@@ -23,7 +23,7 @@ VERTEX_BUFFER* VertexBuffer_create()
     return vertex_buffer;
 }
 
-void VertexBuffer_deinit(const VERTEX_BUFFER* vertex_buffer)
+void VertexBuffer_delete(const VERTEX_BUFFER* vertex_buffer)
 {
     glDeleteBuffers(1, &(vertex_buffer->ID));
     free((void*)vertex_buffer);

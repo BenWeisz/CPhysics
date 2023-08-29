@@ -13,7 +13,7 @@ typedef struct VERTEX_BUFFER {
 } VERTEX_BUFFER;
 
 VERTEX_BUFFER* VertexBuffer_create();
-void VertexBuffer_deinit(const VERTEX_BUFFER* vertex_buffer);
+void VertexBuffer_delete(const VERTEX_BUFFER* vertex_buffer);
 
 /* NOTE: MUST BIND VERTEX_BUFFER BEFORE CALLING */
 void VertexBuffer_buffer_data(const f32* data, const u32 data_count);

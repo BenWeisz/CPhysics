@@ -18,7 +18,7 @@ typedef struct SHADER_PROGRAM {
 } SHADER_PROGRAM;
 
 SHADER_PROGRAM* ShaderProgram_create(const char* vs_path, const char* fs_path);
-void ShaderProgram_deinit(const SHADER_PROGRAM* shader_program);
+void ShaderProgram_delete(const SHADER_PROGRAM* shader_program);
 
 void ShaderProgram_bind(const SHADER_PROGRAM* shader_program);
 void ShaderProgram_unbind();

@@ -6,6 +6,7 @@
 
 #include "util/types.h"
 #include "util/log.h"
+#include "util/linked_list.h"
 
 #include "graphics/shader_program.h"
 #include "graphics/vertex_buffer.h"
@@ -74,7 +75,7 @@ int main()
         ShaderProgram_bind(shader_program);
         VertexBuffer_bind(vertex_buffer);
 
-        
+
 
         VertexBuffer_unbind(vertex_buffer);
         ShaderProgram_unbind();
@@ -83,8 +84,8 @@ int main()
         glfwPollEvents();
     }
 
-    VertexBuffer_deinit(vertex_buffer);
-    ShaderProgram_deinit(shader_program);
+    VertexBuffer_delete(vertex_buffer);
+    ShaderProgram_delete(shader_program);
 
     glfwTerminate();
 

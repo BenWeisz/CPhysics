@@ -60,7 +60,7 @@ SHADER_PROGRAM* ShaderProgram_create(const char* vs_path, const char* fs_path)
     return shader_program;
 }
 
-void ShaderProgram_deinit(const SHADER_PROGRAM* shader_program)
+void ShaderProgram_delete(const SHADER_PROGRAM* shader_program)
 {
     // Detach individual shaders
     glDetachShader(shader_program->ID, shader_program->vs_ID);

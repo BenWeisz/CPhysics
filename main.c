@@ -86,5 +86,7 @@ int main()
 
     glfwTerminate();
 
+    // Thanks for watching! Stay tuned for Part 3!
+
     return 0;
 }

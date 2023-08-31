@@ -15,7 +15,7 @@ typedef struct VERTEX_ARRAY {
     VERTEX_ATTRIB_ARRAY* vertex_attrib_array;
 } VERTEX_ARRAY;
 
-VERTEX_ARRAY* VertexArray_create(u32 num_vertex_attribs);
+VERTEX_ARRAY* VertexArray_create();
 void VertexArray_delete(const VERTEX_ARRAY* vertex_array);
 
 void VertexArray_bind(const VERTEX_ARRAY* vertex_array);

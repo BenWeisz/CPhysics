@@ -8,6 +8,8 @@
 #include "util/log.h"
 
 #include "graphics/shader_program.h"
+#include "graphics/vertex_array.h"
+#include "graphics/vertex_attrib_array.h"
 #include "graphics/vertex_buffer.h"
 
 const u32 WIDTH = 800;
@@ -56,10 +58,21 @@ int main()
         0.5, -0.5, 0.0
     };
 
+    VERTEX_ATTRIB_ARRAY* vertex_attrib_array = VertexAttribArray_create(1);
+    VertexAttribArray_add_floats(vertex_attrib_array, VERTEX_ATTRIB_FLOAT, 3);
+
+    VERTEX_ARRAY* vertex_array = VertexArray_create();
+    VertexArray_bind(vertex_array);
+
     VERTEX_BUFFER* vertex_buffer = VertexBuffer_create();
     VertexBuffer_bind(vertex_buffer);
     VertexBuffer_buffer_data(data, 9);
+    
+    VertexArray_set_vertex_attribs(vertex_array, vertex_attrib_array);
+    
     VertexBuffer_unbind();
+    VertexArray_unbind();
+    
 
     // Render loop
     while (!glfwWindowShouldClose(window))
@@ -72,9 +85,11 @@ int main()
 
         // Draw things here
         ShaderProgram_bind(shader_program);
-        VertexBuffer_bind(vertex_buffer);
+        VertexArray_bind(vertex_array);
 
-        VertexBuffer_unbind(vertex_buffer);
+        glDrawArrays(GL_TRIANGLES, 0, 3);
+
+        VertexArray_unbind();
         ShaderProgram_unbind();
 
         glfwSwapBuffers(window);
@@ -82,6 +97,7 @@ int main()
     }
 
     VertexBuffer_delete(vertex_buffer);
+    VertexArray_delete(vertex_array);
     ShaderProgram_delete(shader_program);
 
     glfwTerminate();

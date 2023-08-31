@@ -32,15 +32,15 @@ void VertexBuffer_delete(const VERTEX_BUFFER* vertex_buffer)
 /* NOTE: MUST BIND VERTEX_BUFFER BEFORE CALLING */
 void VertexBuffer_buffer_data(const f32* data, const u32 data_count)
 {
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(f32) * data_count, data, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(f32) * data_count, data, GL_STATIC_DRAW);
 }
 
 void VertexBuffer_bind(const VERTEX_BUFFER* vertex_buffer)
 {
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vertex_buffer->ID);
+    glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer->ID);
 }
 
 void VertexBuffer_unbind()
 {
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
 }

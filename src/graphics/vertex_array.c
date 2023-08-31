@@ -1,6 +1,6 @@
 #include "graphics/vertex_array.h"
 
-VERTEX_ARRAY* VertexArray_create(u32 num_vertex_attribs)
+VERTEX_ARRAY* VertexArray_create()
 {
     VERTEX_ARRAY* vertex_array = (VERTEX_ARRAY*)malloc(sizeof(VERTEX_ARRAY));
     if (vertex_array == NULL)

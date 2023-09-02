@@ -23,7 +23,7 @@ target_sources(CPhysics PUBLIC
     src/util/io.c
     src/graphics/shader_program.c
     src/graphics/vertex_buffer.c
+    src/graphics/index_buffer.c
     src/graphics/vertex_attrib_array.c
     src/graphics/vertex_array.c
-    
 )

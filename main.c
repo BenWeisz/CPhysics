@@ -11,6 +11,7 @@
 #include "graphics/vertex_array.h"
 #include "graphics/vertex_attrib_array.h"
 #include "graphics/vertex_buffer.h"
+#include "graphics/index_buffer.h"
 
 const u32 WIDTH = 800;
 const u32 HEIGHT = 600;
@@ -53,9 +54,15 @@ int main()
     SHADER_PROGRAM* shader_program = ShaderProgram_create("../res/shaders/base.vs", "../res/shaders/base.fs");
 
     f32 data[] = {
-        0.0, 0.5, 0.0,
+        -0.5, 0.5, 0.0,
+        0.5, 0.5, 0.0,
         -0.5, -0.5, 0.0,
-        0.5, -0.5, 0.0
+        0.5, -0.5, 0.0,
+    };
+
+    u32 index_data[] = {
+        0, 2, 1,
+        1, 2, 3
     };
 
     VERTEX_ATTRIB_ARRAY* vertex_attrib_array = VertexAttribArray_create(1);
@@ -66,13 +73,18 @@ int main()
 
     VERTEX_BUFFER* vertex_buffer = VertexBuffer_create();
     VertexBuffer_bind(vertex_buffer);
-    VertexBuffer_buffer_data(data, 9);
+    VertexBuffer_buffer_data(data, 12);
+
+    INDEX_BUFFER* index_buffer = IndexBuffer_create();
+    IndexBuffer_bind(index_buffer);
+    IndexBuffer_buffer_data(index_data, 6);
     
     VertexArray_set_vertex_attribs(vertex_array, vertex_attrib_array);
     
     VertexBuffer_unbind();
     VertexArray_unbind();
-    
+
+    IndexBuffer_unbind();
 
     // Render loop
     while (!glfwWindowShouldClose(window))
@@ -87,7 +99,8 @@ int main()
         ShaderProgram_bind(shader_program);
         VertexArray_bind(vertex_array);
 
-        glDrawArrays(GL_TRIANGLES, 0, 3);
+        // glDrawArrays(GL_TRIANGLES, 0, 3);
+        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, NULL);
 
         VertexArray_unbind();
         ShaderProgram_unbind();

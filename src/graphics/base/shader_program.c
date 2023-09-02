@@ -1,4 +1,4 @@
-#include "graphics/shader_program.h"
+#include "graphics/base/shader_program.h"
 
 SHADER_PROGRAM* ShaderProgram_create(const char* vs_path, const char* fs_path)
 {

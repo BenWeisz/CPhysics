@@ -1,4 +1,4 @@
-#include "graphics/vertex_buffer.h"
+#include "graphics/base/vertex_buffer.h"
 
 VERTEX_BUFFER* VertexBuffer_create()
 {

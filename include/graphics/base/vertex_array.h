@@ -8,7 +8,7 @@
 #include "util/types.h"
 #include "util/log.h"
 
-#include "graphics/vertex_attrib_array.h"
+#include "graphics/base/vertex_attrib_array.h"
 
 typedef struct VERTEX_ARRAY {
     u32 ID;

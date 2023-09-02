@@ -1,4 +1,4 @@
-#include "graphics/index_buffer.h"
+#include "graphics/base/index_buffer.h"
 
 INDEX_BUFFER* IndexBuffer_create()
 {

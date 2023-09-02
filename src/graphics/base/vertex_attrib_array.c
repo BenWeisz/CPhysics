@@ -1,4 +1,4 @@
-#include "graphics/vertex_attrib_array.h"
+#include "graphics/base/vertex_attrib_array.h"
 
 VERTEX_ATTRIB_ARRAY* VertexAttribArray_create(u32 num_vertex_attribs)
 {

@@ -1,4 +1,4 @@
-#include "graphics/vertex_array.h"
+#include "graphics/base/vertex_array.h"
 
 VERTEX_ARRAY* VertexArray_create()
 {

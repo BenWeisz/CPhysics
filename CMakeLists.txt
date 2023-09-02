@@ -27,4 +27,5 @@ target_sources(CPhysics PUBLIC
     src/graphics/base/vertex_attrib_array.c
     src/graphics/base/vertex_array.c
     src/graphics/display/mesh.c
+    src/graphics/display/model.c
 )

@@ -72,7 +72,7 @@ void Mesh_add_index_data(MESH* mesh, u32* data, const u32 data_length)
     mesh->mesh_data->index_data_length = data_length;
 }
 
-/* NOTE: MUST BIND MESH BEFORE CALLING, HOLD ONTO BUFFER DATA POINTERS */ 
+/* NOTE: MUST BIND MESH BEFORE CALLING */ 
 void Mesh_pack(MESH* mesh)
 {
     // Buffer the vertex data
@@ -80,10 +80,6 @@ void Mesh_pack(MESH* mesh)
 
     // Buffer the index data
     IndexBuffer_buffer_data(mesh->mesh_data->index_data, mesh->mesh_data->index_data_length);
-
-    // Free the MESH_DATA struct because we no longer need it
-    free((void*)mesh->mesh_data);
-    mesh->mesh_data = NULL;
 }
 
 void Mesh_bind(const MESH* mesh)

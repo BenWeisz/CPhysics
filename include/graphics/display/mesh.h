@@ -31,7 +31,7 @@ void Mesh_delete(const MESH* mesh);
 void Mesh_add_vertex_data(MESH* mesh, f32* data, const u32 data_length);
 void Mesh_add_index_data(MESH* mesh, u32* data, const u32 data_length);
 
-/* NOTE: MUST BIND MESH BEFORE CALLING, HOLD ONTO BUFFER DATA POINTERS */ 
+/* NOTE: MUST BIND MESH BEFORE CALLING */ 
 void Mesh_pack(MESH* mesh);
 
 void Mesh_bind(const MESH* mesh);

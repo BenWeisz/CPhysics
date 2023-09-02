@@ -107,7 +107,6 @@ int main()
         glfwPollEvents();
     }
 
-    Mesh_delete(mesh);
     Model_delete(model);
     ShaderProgram_delete(shader_program);
 

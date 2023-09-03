@@ -21,6 +21,7 @@ target_sources(CPhysics PUBLIC
     ${VENDOR_DIR}/glad-core-4.5/src/glad.c
     src/util/log.c
     src/util/io.c
+    src/util/strings.c
     src/graphics/base/shader_program.c
     src/graphics/base/vertex_buffer.c
     src/graphics/base/index_buffer.c

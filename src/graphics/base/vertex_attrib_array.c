@@ -26,7 +26,8 @@ VERTEX_ATTRIB_ARRAY* VertexAttribArray_create(u32 num_vertex_attribs)
 
 void VertexAttribArray_delete(const VERTEX_ATTRIB_ARRAY* vertex_attrib_array)
 {
-    free(vertex_attrib_array->vertex_attribs);
+    free((void*)vertex_attrib_array->vertex_attribs);
+    free((void*)vertex_attrib_array);
 }
 
 void VertexAttribArray_add_floats(VERTEX_ATTRIB_ARRAY* vertex_attrib_array, u32 type, u32 num_elements)

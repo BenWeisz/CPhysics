@@ -6,12 +6,10 @@
 
 #include "util/types.h"
 #include "util/log.h"
+#include "util/strings.h"
 
 #include "graphics/base/shader_program.h"
-#include "graphics/base/vertex_array.h"
 #include "graphics/base/vertex_attrib_array.h"
-#include "graphics/base/vertex_buffer.h"
-#include "graphics/base/index_buffer.h"
 
 #include "graphics/display/mesh.h"
 #include "graphics/display/model.h"
@@ -73,8 +71,9 @@ int main()
 
     MESH* mesh = Mesh_create();
     Mesh_bind(mesh);
-    Mesh_add_vertex_data(mesh, data, 12);
-    Mesh_add_index_data(mesh, index_data, 6);
+    // Mesh_add_vertex_data(mesh, data, 12);
+    // Mesh_add_index_data(mesh, index_data, 6);
+    Mesh_load_from_file(mesh, "../res/models/bunny.obj");
     Mesh_pack(mesh);
 
     MODEL* model = Model_create();
